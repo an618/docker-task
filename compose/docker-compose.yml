@@ -6,6 +6,8 @@ services:
     MYSQL_DATABASE: wordpressdb
   ports:
    - 3306
+  volumes:
+    - mybackup:/var/lib/mysql   
 
  wordpress:
   image: wordpress
@@ -18,3 +20,9 @@ services:
     WORDPRESS_DB_USER: root
     WORDPRESS_DB_PASSWORD: Pass@123
     WORDPRESS_DB_NAME: wordpressdb
+  volumes:
+    - wpdata:/var/www/html/wp-content
+
+volumes:
+  mybackup:
+  wpdata:  
